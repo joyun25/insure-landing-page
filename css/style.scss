@@ -1,0 +1,50 @@
+// CSS Reset
+@import 'reset';
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Karla:wght@400;700&display=swap');
+
+// Variables
+$darkViolet: hsl(256, 26%, 20%);
+$grayishBlue: hsl(216, 30%, 68%);
+$veryDarkViolet: hsl(270, 9%, 17%);
+$darkGrayishViolet: hsl(273, 4%, 51%);
+$veryLightGray: hsl(0, 0%, 98%);
+$dmSerifDisplay: 'DM Serif Display', serif; // headings, weights: 400
+$karla: 'Karla', sans-serif; // body, weights: 400, 700
+
+// Mixin
+@mixin pad {
+    @media (max-width: 900px) {
+        @content;
+    }
+}
+
+// My Css
+* {
+    box-sizing: border-box;
+    outline: 1px solid red;
+}
+
+body {
+    font-family: $karla;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    a {
+        color: hsl(228, 45%, 44%);
+    }
+}
