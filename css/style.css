@@ -374,8 +374,13 @@ h1 {
   width: 86px;
   height: 86px;
   margin-bottom: 40px;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+@media (max-width: 600px) {
+  .difference img {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .difference h3 {
