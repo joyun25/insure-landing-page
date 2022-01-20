@@ -90,28 +90,31 @@ h1 {
     justify-content: space-between;
     align-items: center;
     @include mobile {
-        display: none;
+        height: 0;
         position: absolute;
         top: 72px;
         left: 0;
         z-index: 2;
         width: 100%;
-        height: calc(100vh - 72px);
         background-color: $darkViolet;
         background-image: url('../images/bg-pattern-mobile-nav.svg');
         background-repeat: no-repeat;
         background-position: 0 bottom;
         background-size: 100%;
+        display: block;
         color: #fff;
         text-align: center;
         font-size: 20px;
-        padding: 30px;
+        overflow: hidden;
+        transition: all .8s;
     }
     a {
         transition: all .3s;
         @include mobile {
             padding-top: 15px;
             padding-bottom: 15px;
+            opacity: 0;
+            transition: all .8s;
         }
         &:hover {
             color: $veryDarkViolet;
@@ -141,6 +144,14 @@ h1 {
     display: none;
     @include mobile {
         display: block;
+    }
+}
+
+.menuShow {
+    height: calc(100vh - 72px);
+    padding: 30px;
+    a {
+        opacity: 1;
     }
 }
 
@@ -491,9 +502,4 @@ footer {
         height: 330px;
         top: calc(100vw * 1.2 + 300px);
     }
-}
-
-// for js
-.d-block {
-    display: block;
 }
