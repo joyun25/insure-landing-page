@@ -114,12 +114,12 @@ h1 {
 .button {
   text-transform: uppercase;
   background: transparent;
-  padding: 10px 25px;
+  padding: 9px 25px;
   -webkit-transition: all .3s;
   transition: all .3s;
 }
 
-.menu {
+.menu_list {
   width: 430px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -132,24 +132,77 @@ h1 {
           align-items: center;
 }
 
-.menu a {
+@media (max-width: 600px) {
+  .menu_list {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: calc(100vh - 72px);
+    background-color: #2d2640;
+    background-image: url("../images/bg-pattern-mobile-nav.svg");
+    background-repeat: no-repeat;
+    background-position: 0 bottom;
+    background-size: 100%;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    padding: 30px;
+  }
+}
+
+.menu_list a {
   -webkit-transition: all .3s;
   transition: all .3s;
 }
 
-.menu a:hover {
+@media (max-width: 600px) {
+  .menu_list a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+
+.menu_list a:hover {
   color: #2b272f;
 }
 
-.menu .button {
+.menu_list .button {
   color: #2b272f;
   border: 1px solid #2b272f;
   margin-left: 10px;
 }
 
-.menu .button:hover {
+@media (max-width: 600px) {
+  .menu_list .button {
+    color: #fff;
+    border: 1px solid #fff;
+    margin: 10px 0;
+  }
+}
+
+.menu_list .button:hover {
   background: #2b272f;
   color: #fff;
+}
+
+@media (max-width: 900px) {
+  .menu_list .button:hover {
+    background: #fff;
+    color: #2b272f;
+  }
+}
+
+.menu_icon {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .menu_icon {
+    display: block;
+  }
 }
 
 .intro {
@@ -159,14 +212,34 @@ h1 {
   position: relative;
 }
 
+@media (max-width: 600px) {
+  .intro {
+    margin-bottom: 130px;
+    text-align: center;
+  }
+}
+
 .intro .container {
   padding-top: 100px;
   padding-bottom: 130px;
   position: relative;
 }
 
+@media (max-width: 600px) {
+  .intro .container {
+    padding: 0;
+  }
+}
+
 .intro_text {
   width: 48%;
+}
+
+@media (max-width: 600px) {
+  .intro_text {
+    width: 100%;
+    padding-bottom: 80px;
+  }
 }
 
 .intro_text h2 {
@@ -176,6 +249,15 @@ h1 {
   font-family: "DM Serif Display", serif;
   font-size: 60px;
   position: relative;
+}
+
+@media (max-width: 600px) {
+  .intro_text h2 {
+    width: 85%;
+    margin: 0 auto;
+    font-size: 44px;
+    padding-top: 80px;
+  }
 }
 
 .intro_text h2::after {
@@ -188,8 +270,20 @@ h1 {
   left: 0;
 }
 
+@media (max-width: 600px) {
+  .intro_text h2::after {
+    display: none;
+  }
+}
+
 .intro_text p {
   line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .intro_text p {
+    padding: 0 26px;
+  }
 }
 
 .intro_text .button {
@@ -204,6 +298,19 @@ h1 {
   color: #2b272f;
 }
 
+@media (max-width: 900px) {
+  .intro_text .button:hover {
+    background: #2b272f;
+    color: #fff;
+  }
+}
+
+@media (max-width: 600px) {
+  .difference {
+    text-align: center;
+  }
+}
+
 .difference h2 {
   padding-top: 50px;
   padding-bottom: 90px;
@@ -211,6 +318,12 @@ h1 {
   color: #2b272f;
   font-size: 60px;
   position: relative;
+}
+
+@media (max-width: 600px) {
+  .difference h2 {
+    font-size: 48px;
+  }
 }
 
 .difference h2::after {
@@ -223,6 +336,14 @@ h1 {
   left: 0;
 }
 
+@media (max-width: 600px) {
+  .difference h2::after {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
 .difference ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -232,14 +353,29 @@ h1 {
           justify-content: space-between;
 }
 
+@media (max-width: 600px) {
+  .difference ul {
+    display: block;
+  }
+}
+
 .difference li {
   width: 31.5%;
+}
+
+@media (max-width: 600px) {
+  .difference li {
+    width: 100%;
+    margin-bottom: 70px;
+  }
 }
 
 .difference img {
   width: 86px;
   height: 86px;
   margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .difference h3 {
@@ -263,7 +399,7 @@ h1 {
   background-image: url("../images/bg-pattern-how-we-work-desktop.svg");
   background-repeat: no-repeat;
   background-position: right center;
-  padding: 50px;
+  padding: 50px 70px;
   margin: 130px 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -276,18 +412,54 @@ h1 {
           align-items: center;
 }
 
+@media (max-width: 900px) {
+  .findMore .card {
+    background-image: url("../images/bg-pattern-how-we-work-mobile.svg");
+    background-position: right top;
+    padding: 70px 50px;
+    display: block;
+    text-align: center;
+  }
+}
+
 .findMore p {
   font-family: "DM Serif Display", serif;
   font-size: 46px;
+}
+
+@media (max-width: 900px) {
+  .findMore p {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .findMore p {
+    font-size: 36px;
+  }
 }
 
 .findMore a {
   border: 1px solid #fff;
 }
 
+@media (max-width: 900px) {
+  .findMore a {
+    display: inline-block;
+    margin-top: 50px;
+  }
+}
+
 .findMore a:hover {
   background: #fff;
   color: #2b272f;
+}
+
+@media (max-width: 900px) {
+  .findMore a:hover {
+    background: #2b272f;
+    color: #fff;
+  }
 }
 
 footer {
@@ -297,6 +469,13 @@ footer {
   background-repeat: no-repeat;
   text-transform: uppercase;
   position: relative;
+}
+
+@media (max-width: 600px) {
+  footer {
+    background-image: url("../images/bg-pattern-footer-mobile.svg");
+    text-align: center;
+  }
 }
 
 footer .container {
@@ -318,6 +497,12 @@ footer .container {
   border-bottom: 1px solid #95a9c6;
 }
 
+@media (max-width: 600px) {
+  .footer_top {
+    display: block;
+  }
+}
+
 .footer_top ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -331,6 +516,12 @@ footer .container {
   width: 150px;
 }
 
+@media (max-width: 600px) {
+  .footer_top ul {
+    margin: 0 auto;
+  }
+}
+
 .footer_top a {
   font-size: 24px;
   color: #837d87;
@@ -340,9 +531,21 @@ footer .container {
   color: #2b272f;
 }
 
+@media (max-width: 900px) {
+  .footer_top a:hover {
+    color: #837d87;
+  }
+}
+
 .footer_logo {
   width: 115px;
   height: 18px;
+}
+
+@media (max-width: 600px) {
+  .footer_logo {
+    margin: 0 auto 30px;
+  }
 }
 
 .footer_lists {
@@ -355,10 +558,40 @@ footer .container {
   padding-top: 50px;
 }
 
+@media (max-width: 900px) {
+  .footer_lists {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer_lists {
+    display: block;
+  }
+}
+
 .footer_lists > li {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+
+@media (max-width: 900px) {
+  .footer_lists > li {
+    -webkit-box-flex: inherit;
+        -ms-flex: inherit;
+            flex: inherit;
+    width: 50%;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer_lists > li {
+    width: 100%;
+  }
 }
 
 .footer_lists h4 {
@@ -378,6 +611,12 @@ footer .container {
   text-decoration: underline;
 }
 
+@media (max-width: 900px) {
+  .footer_lists a:hover {
+    text-decoration: none;
+  }
+}
+
 .attribution {
   font-size: 11px;
   position: absolute;
@@ -393,31 +632,75 @@ footer .container {
   color: #2b272f;
 }
 
+@media (max-width: 900px) {
+  .attribution a {
+    text-decoration: underline;
+  }
+}
+
 .attribution a:hover {
   text-decoration: underline;
 }
 
 .intro_img {
+  background-image: url("../images/image-intro-desktop.jpg");
+  background-repeat: no-repeat;
+  max-width: 48%;
   width: 540px;
   height: 650px;
   position: absolute;
-  top: 50px;
-  right: 10px;
+  top: 100px;
+  right: 20px;
+}
+
+@media (max-width: 600px) {
+  .intro_img {
+    background-image: url("../images/image-intro-mobile.jpg");
+    background-size: cover;
+    position: static;
+    max-width: 100%;
+    width: 100%;
+    height: calc(100vw * 1.2);
+  }
 }
 
 .intro_patternLeft {
+  background-image: url("../images/bg-pattern-intro-left-desktop.svg");
   width: 195px;
   height: 504px;
   position: absolute;
   left: 0;
-  bottom: -330px;
+  bottom: -400px;
+}
+
+@media (max-width: 600px) {
+  .intro_patternLeft {
+    background-image: url("../images/bg-pattern-intro-left-mobile.svg");
+    width: 168px;
+    height: 165px;
+    top: calc(100vw * 1.2);
+  }
 }
 
 .intro_patternRight {
+  background-image: url("../images/bg-pattern-intro-right-desktop.svg");
   width: 436px;
   height: 593px;
   position: absolute;
   right: 0;
   top: 0;
+}
+
+@media (max-width: 600px) {
+  .intro_patternRight {
+    background-image: url("../images/bg-pattern-intro-right-mobile.svg");
+    width: 124px;
+    height: 330px;
+    top: calc(100vw * 1.2 + 300px);
+  }
+}
+
+.d-block {
+  display: block;
 }
 /*# sourceMappingURL=style.css.map */

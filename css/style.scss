@@ -20,6 +20,12 @@ $karla: 'Karla', sans-serif; // body, weights: 400, 700
     }
 }
 
+@mixin mobile {
+    @media (max-width: 600px) {
+        @content;
+    }
+}
+
 // My Css
 * {
     box-sizing: border-box;
@@ -74,17 +80,39 @@ h1 {
 .button {
     text-transform: uppercase;
     background: transparent;
-    padding: 10px 25px;
+    padding: 9px 25px;
     transition: all .3s;
 }
 
-.menu {
+.menu_list {
     width: 430px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include mobile {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        z-index: 2;
+        width: 100%;
+        height: calc(100vh - 72px);
+        background-color: $darkViolet;
+        background-image: url('../images/bg-pattern-mobile-nav.svg');
+        background-repeat: no-repeat;
+        background-position: 0 bottom;
+        background-size: 100%;
+        color: #fff;
+        text-align: center;
+        font-size: 20px;
+        padding: 30px;
+    }
     a {
         transition: all .3s;
+        @include mobile {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
         &:hover {
             color: $veryDarkViolet;
         }
@@ -93,10 +121,26 @@ h1 {
         color: $veryDarkViolet;
         border: 1px solid $veryDarkViolet;
         margin-left: 10px;
+        @include mobile {
+            color: #fff;
+            border: 1px solid #fff;
+            margin: 10px 0;
+        }
         &:hover {
             background: $veryDarkViolet;
             color: #fff;
+            @include pad {
+                background: #fff;
+                color: $veryDarkViolet;
+            }
         }
+    }
+}
+
+.menu_icon {
+    display: none;
+    @include mobile {
+        display: block;
     }
 }
 
@@ -105,15 +149,26 @@ h1 {
     color: #fff;
     margin-bottom: 300px;
     position: relative;
+    @include mobile {
+        margin-bottom: 130px;
+        text-align: center;
+    }
     .container {
         padding-top: 100px;
         padding-bottom: 130px;
         position: relative;
+        @include mobile {
+            padding: 0;
+        }
     }
 }
 
 .intro_text {
     width: 48%;
+    @include mobile {
+        width: 100%;
+        padding-bottom: 80px;
+    }
     h2 {
         width: 80%;
         padding-top: 50px;
@@ -121,6 +176,12 @@ h1 {
         font-family: $dmSerifDisplay;
         font-size: 60px;
         position: relative;
+        @include mobile {
+            width: 85%;
+            margin: 0 auto;
+            font-size: 44px;
+            padding-top: 80px;
+        }
     }
     h2::after {
         content: '';
@@ -130,9 +191,15 @@ h1 {
         position: absolute;
         top: 0;
         left: 0;
+        @include mobile {
+            display: none;
+        }
     }
     p {
         line-height: 1.5;
+        @include mobile {
+            padding: 0 26px;
+        }
     }
     .button {
         display: inline-block;
@@ -142,11 +209,18 @@ h1 {
         &:hover {
             background: #fff;
             color: $veryDarkViolet;
+            @include pad {
+                background: $veryDarkViolet;
+                color: #fff;
+            }
         }
     }
 }
 
 .difference {
+    @include mobile {
+        text-align: center;
+    }
     h2 {
         padding-top: 50px;
         padding-bottom: 90px;
@@ -154,6 +228,9 @@ h1 {
         color: $veryDarkViolet;
         font-size: 60px;
         position: relative;
+        @include mobile {
+            font-size: 48px;
+        }
     }
     h2::after {
         content: '';
@@ -163,18 +240,31 @@ h1 {
         position: absolute;
         top: 0;
         left: 0;
+        @include mobile {
+            left: 50%;
+            transform: translateX(-50%);
+        }
     }
     ul {
         display: flex;
         justify-content: space-between;
+        @include mobile {
+            display: block;
+        }
     }
     li {
         width: 31.5%;
+        @include mobile {
+            width: 100%;
+            margin-bottom: 70px;
+        }
     }
     img {
         width: 86px;
         height: 86px;
         margin-bottom: 40px;
+        margin-left: auto;
+        margin-right: auto;
     }
     h3 {
         padding-bottom: 20px;
@@ -195,21 +285,42 @@ h1 {
         background-image: url('../images/bg-pattern-how-we-work-desktop.svg');
         background-repeat: no-repeat;
         background-position: right center;
-        padding: 50px;
+        padding: 50px 70px;
         margin: 130px 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        @include pad {
+            background-image: url('../images/bg-pattern-how-we-work-mobile.svg');
+            background-position: right top;
+            padding: 70px 50px;
+            display: block;
+            text-align: center;
+        }
     }
     p {
         font-family: $dmSerifDisplay;
         font-size: 46px;
+        @include pad {
+            font-size: 40px;
+        }
+        @include mobile {
+            font-size: 36px;
+        }
     }
     a {
         border: 1px solid #fff;
+        @include pad {
+            display: inline-block;
+            margin-top: 50px;
+        }
         &:hover {
             background: #fff;
             color: $veryDarkViolet;
+            @include pad {
+                background: $veryDarkViolet;
+                color: #fff;
+            }
         }
     }
 }
@@ -221,6 +332,10 @@ footer {
     background-repeat: no-repeat;
     text-transform: uppercase;
     position: relative;
+    @include mobile {
+        background-image: url('../images/bg-pattern-footer-mobile.svg');
+        text-align: center;
+    }
     .container {
         padding-top: 60px;
         padding-bottom: 100px;
@@ -233,17 +348,26 @@ footer {
     align-items: center;
     padding-bottom: 30px;
     border-bottom: 1px solid $grayishBlue;
+    @include mobile {
+        display: block;
+    }
     ul {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 150px;
+        @include mobile {
+            margin: 0 auto;
+        }
     }
     a {
         font-size: 24px;
         color: $darkGrayishViolet;
         &:hover {
             color: $veryDarkViolet;
+            @include pad {
+                color: $darkGrayishViolet;
+            }
         }
     }
 }
@@ -251,14 +375,32 @@ footer {
 .footer_logo {
     width: 115px;
     height: 18px;
+    @include mobile {
+        margin: 0 auto 30px;
+    }
 }
 
 .footer_lists {
     display: flex;
     justify-content: space-between;
     padding-top: 50px;
+    @include pad {
+        flex-wrap: wrap;
+    }
+    @include mobile {
+        display: block;
+    }
     > li {
         flex: 1;
+        @include pad {
+            flex: inherit;
+            width: 50%;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        @include mobile {
+            width: 100%;
+        }
     }
     h4 {
         color: $darkGrayishViolet;
@@ -273,6 +415,9 @@ footer {
         display: inline-block;
         &:hover {
             text-decoration: underline;
+            @include pad {
+                text-decoration: none;
+            }
         }
     }
 }
@@ -287,6 +432,9 @@ footer {
     a {
         display: inline-block;
         color: $veryDarkViolet;
+        @include pad {
+            text-decoration: underline;
+        }
         &:hover {
             text-decoration: underline;
         }
@@ -295,25 +443,55 @@ footer {
 
 // images
 .intro_img {
+    background-image: url('../images/image-intro-desktop.jpg');
+    background-repeat: no-repeat;
+    max-width: 48%;
     width: 540px;
     height: 650px;
     position: absolute;
-    top: 50px;
-    right: 10px;
+    top: 100px;
+    right: 20px;
+    @include mobile {
+        background-image: url('../images/image-intro-mobile.jpg');
+        background-size: cover;
+        position: static;
+        max-width: 100%;
+        width: 100%;
+        height: calc(100vw * 1.2);
+    }
 }
 
 .intro_patternLeft {
+    background-image: url('../images/bg-pattern-intro-left-desktop.svg');
     width: 195px;
     height: 504px;
     position: absolute;
     left: 0;
-    bottom: -330px;
+    bottom: -400px;
+    @include mobile {
+        background-image: url('../images/bg-pattern-intro-left-mobile.svg');
+        width: 168px;
+        height: 165px;
+        top: calc(100vw * 1.2);
+    }
 }
 
 .intro_patternRight {
+    background-image: url('../images/bg-pattern-intro-right-desktop.svg');
     width: 436px;
     height: 593px;
     position: absolute;
     right: 0;
     top: 0;
+    @include mobile {
+        background-image: url('../images/bg-pattern-intro-right-mobile.svg');
+        width: 124px;
+        height: 330px;
+        top: calc(100vw * 1.2 + 300px);
+    }
+}
+
+// for js
+.d-block {
+    display: block;
 }
