@@ -118,6 +118,9 @@ h1 {
         }
         &:hover {
             color: $veryDarkViolet;
+            @include mobile {
+                color: #fff;
+            }
         }
     }
     .button {
