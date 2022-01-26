@@ -26,8 +26,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Github](https://github.com/joyun25/insure-landing-page-master)
-- Live Site URL: [Github Page](https://joyun25.github.io/insure-landing-page-master/)
+- Solution URL: [Github](https://github.com/joyun25/insure-landing-page)
+- Live Site URL: [Github Page](https://joyun25.github.io/insure-landing-page/)
 
 ### Built with
 
